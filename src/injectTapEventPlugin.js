@@ -21,7 +21,8 @@ should be injected by the application.'
   alreadyInjected = true;
   tapMoveThreshold = tapMoveThreshold || 10;
 
-  require('react-dom/lib/EventPluginHub').injection.injectEventPluginsByName({
-    'TapEventPlugin':       require('./TapEventPlugin.js')(shouldRejectClick, tapMoveThreshold)
+  require('react-dom').__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.EventPluginHub.injection.injectEventPluginsByName({
+    'TapEventPlugin': require('./TapEventPlugin.js')(shouldRejectClick, tapMoveThreshold)
   });
 };
+
